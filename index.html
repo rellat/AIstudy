@@ -30,88 +30,58 @@
     }
 
     .ql-video {
-      width: 853px;
-      height: 480px;
+      /*width: 853px;
+      height: 480px;*/
       margin: auto;
+      border: 1px solid #000;
     }
   </style>
 </head>
 
 <body>
-  <div id="snow-container" class="ql-toolbar ql-snow">
+  <div id="snow-container">
     <div class="toolbar">
       <span class="ql-formats">
-        <span class="ql-header ql-picker"><span class="ql-picker-label" data-label="Normal"><svg viewBox="0 0 18 18"> <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon> <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon> </svg></span>
-      <span
-        class="ql-picker-options"><span class="ql-picker-item" data-value="1" data-label="Heading"></span><span class="ql-picker-item" data-value="2"
-          data-label="Subheading"></span><span class="ql-picker-item ql-selected" data-label="Normal"></span></span>
-        </span><select class="ql-header" style="display: none;">
+        <select class="ql-header">
           <option value="1">Heading</option>
           <option value="2">Subheading</option>
-          <option selected="">Normal</option>
+          <option selected>Normal</option>
         </select>
-        <span class="ql-font ql-picker"><span class="ql-picker-label" data-label="Sailec Light"><svg viewBox="0 0 18 18"> <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon> <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon> </svg></span>
-        <span
-          class="ql-picker-options"><span class="ql-picker-item ql-selected" data-label="Sailec Light"></span><span class="ql-picker-item" data-value="sofia"
-            data-label="Sofia Pro"></span><span class="ql-picker-item" data-value="slabo" data-label="Slabo 27px"></span>
-          <span
-            class="ql-picker-item" data-value="roboto" data-label="Roboto Slab"></span><span class="ql-picker-item" data-value="inconsolata" data-label="Inconsolata"></span><span class="ql-picker-item"
-              data-value="ubuntu" data-label="Ubuntu Mono"></span></span>
-            </span><select class="ql-font" style="display: none;">
-          <option selected="">Sailec Light</option>
+        <select class="ql-font">
+          <option selected>Sailec Light</option>
           <option value="sofia">Sofia Pro</option>
           <option value="slabo">Slabo 27px</option>
           <option value="roboto">Roboto Slab</option>
           <option value="inconsolata">Inconsolata</option>
           <option value="ubuntu">Ubuntu Mono</option>
         </select>
-            </span>
-            <span class="ql-formats">
-        <button class="ql-bold" type="button"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path> <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path> </svg></button>
-        <button class="ql-italic" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line> <line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line> <line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line> </svg></button>
-        <button class="ql-underline" type="button"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect> </svg></button>
       </span>
-            <span class="ql-formats">
-        <button class="ql-list" value="ordered" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="15" y1="4" y2="4"></line> <line class="ql-stroke" x1="7" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="7" x2="15" y1="14" y2="14"></line> <line class="ql-stroke ql-thin" x1="2.5" x2="4.5" y1="5.5" y2="5.5"></line> <path class="ql-fill" d="M3.5,6A0.5,0.5,0,0,1,3,5.5V3.085l-0.276.138A0.5,0.5,0,0,1,2.053,3c-0.124-.247-0.023-0.324.224-0.447l1-.5A0.5,0.5,0,0,1,4,2.5v3A0.5,0.5,0,0,1,3.5,6Z"></path> <path class="ql-stroke ql-thin" d="M4.5,10.5h-2c0-.234,1.85-1.076,1.85-2.234A0.959,0.959,0,0,0,2.5,8.156"></path> <path class="ql-stroke ql-thin" d="M2.5,14.846a0.959,0.959,0,0,0,1.85-.109A0.7,0.7,0,0,0,3.75,14a0.688,0.688,0,0,0,.6-0.736,0.959,0.959,0,0,0-1.85-.109"></path> </svg></button>
-        <button class="ql-list" value="bullet" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line> <line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line> <line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line> <line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line> <line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line> </svg></button>
-        <span class="ql-align ql-picker ql-icon-picker"><span class="ql-picker-label"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="3" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="3" x2="13" y1="14" y2="14"></line> <line class="ql-stroke" x1="3" x2="9" y1="4" y2="4"></line> </svg></span>
-            <span
-              class="ql-picker-options"><span class="ql-picker-item ql-selected"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="3" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="3" x2="13" y1="14" y2="14"></line> <line class="ql-stroke" x1="3" x2="9" y1="4" y2="4"></line> </svg></span>
-              <span
-                class="ql-picker-item" data-value="center">
-                <svg viewBox="0 0 18 18">
-                  <line class="ql-stroke" x1="15" x2="3" y1="9" y2="9"></line>
-                  <line class="ql-stroke" x1="14" x2="4" y1="14" y2="14"></line>
-                  <line class="ql-stroke" x1="12" x2="6" y1="4" y2="4"></line>
-                </svg>
-                </span><span class="ql-picker-item" data-value="right"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="15" x2="3" y1="9" y2="9"></line> <line class="ql-stroke" x1="15" x2="5" y1="14" y2="14"></line> <line class="ql-stroke" x1="15" x2="9" y1="4" y2="4"></line> </svg></span>
-                <span
-                  class="ql-picker-item" data-value="justify">
-                  <svg viewBox="0 0 18 18">
-                    <line class="ql-stroke" x1="15" x2="3" y1="9" y2="9"></line>
-                    <line class="ql-stroke" x1="15" x2="3" y1="14" y2="14"></line>
-                    <line class="ql-stroke" x1="15" x2="3" y1="4" y2="4"></line>
-                  </svg>
-                  </span>
-                  </span>
-                  </span><select class="ql-align" style="display: none;">
-          <option selected=""></option>
+      <span class="ql-formats">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <select class="ql-align">
+          <option selected></option>
           <option value="center"></option>
           <option value="right"></option>
           <option value="justify"></option>
         </select>
-                  </span>
-                  <span class="ql-formats">
-        <button class="ql-link" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line> <path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path> <path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path> </svg></button>
-        <button class="ql-image" type="button"><svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="10" width="12" x="3" y="4"></rect> <circle class="ql-fill" cx="6" cy="7" r="1"></circle> <polyline class="ql-even ql-fill" points="5 12 5 11 7 9 8 10 11 7 13 9 13 12 5 12"></polyline> </svg></button>
-        <button class="ql-video" type="button"><svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect> <rect class="ql-fill" height="12" width="1" x="5" y="3"></rect> <rect class="ql-fill" height="12" width="1" x="12" y="3"></rect> <rect class="ql-fill" height="2" width="8" x="5" y="8"></rect> <rect class="ql-fill" height="1" width="3" x="3" y="5"></rect> <rect class="ql-fill" height="1" width="3" x="3" y="7"></rect> <rect class="ql-fill" height="1" width="3" x="3" y="10"></rect> <rect class="ql-fill" height="1" width="3" x="3" y="12"></rect> <rect class="ql-fill" height="1" width="3" x="12" y="5"></rect> <rect class="ql-fill" height="1" width="3" x="12" y="7"></rect> <rect class="ql-fill" height="1" width="3" x="12" y="10"></rect> <rect class="ql-fill" height="1" width="3" x="12" y="12"></rect> </svg></button>
       </span>
-                  <span class="ql-formats">
-        <button class="ql-formula" type="button"><svg viewBox="0 0 18 18"> <path class="ql-fill" d="M11.759,2.482a2.561,2.561,0,0,0-3.53.607A7.656,7.656,0,0,0,6.8,6.2C6.109,9.188,5.275,14.677,4.15,14.927a1.545,1.545,0,0,0-1.3-.933A0.922,0.922,0,0,0,2,15.036S1.954,16,4.119,16s3.091-2.691,3.7-5.553c0.177-.826.36-1.726,0.554-2.6L8.775,6.2c0.381-1.421.807-2.521,1.306-2.676a1.014,1.014,0,0,0,1.02.56A0.966,0.966,0,0,0,11.759,2.482Z"></path> <rect class="ql-fill" height="1.6" rx="0.8" ry="0.8" width="5" x="5.15" y="6.2"></rect> <path class="ql-fill" d="M13.663,12.027a1.662,1.662,0,0,1,.266-0.276q0.193,0.069.456,0.138a2.1,2.1,0,0,0,.535.069,1.075,1.075,0,0,0,.767-0.3,1.044,1.044,0,0,0,.314-0.8,0.84,0.84,0,0,0-.238-0.619,0.8,0.8,0,0,0-.594-0.239,1.154,1.154,0,0,0-.781.3,4.607,4.607,0,0,0-.781,1q-0.091.15-.218,0.346l-0.246.38c-0.068-.288-0.137-0.582-0.212-0.885-0.459-1.847-2.494-.984-2.941-0.8-0.482.2-.353,0.647-0.094,0.529a0.869,0.869,0,0,1,1.281.585c0.217,0.751.377,1.436,0.527,2.038a5.688,5.688,0,0,1-.362.467,2.69,2.69,0,0,1-.264.271q-0.221-.08-0.471-0.147a2.029,2.029,0,0,0-.522-0.066,1.079,1.079,0,0,0-.768.3A1.058,1.058,0,0,0,9,15.131a0.82,0.82,0,0,0,.832.852,1.134,1.134,0,0,0,.787-0.3,5.11,5.11,0,0,0,.776-0.993q0.141-.219.215-0.34c0.046-.076.122-0.194,0.223-0.346a2.786,2.786,0,0,0,.918,1.726,2.582,2.582,0,0,0,2.376-.185c0.317-.181.212-0.565,0-0.494A0.807,0.807,0,0,1,14.176,15a5.159,5.159,0,0,1-.913-2.446l0,0Q13.487,12.24,13.663,12.027Z"></path> </svg></button>
-        <button class="ql-code-block" type="button"><svg viewBox="0 0 18 18"> <polyline class="ql-even ql-stroke" points="5 7 3 9 5 11"></polyline> <polyline class="ql-even ql-stroke" points="13 7 15 9 13 11"></polyline> <line class="ql-stroke" x1="10" x2="8" y1="5" y2="13"></line> </svg></button>
+      <span class="ql-formats">
+        <button class="ql-link"></button>
+        <button class="ql-image"></button>
+        <button class="ql-video"></button>
       </span>
-                  <span class="ql-formats">
-        <button class="ql-clean" type="button"><svg class="" viewBox="0 0 18 18"> <line class="ql-stroke" x1="5" x2="13" y1="3" y2="3"></line> <line class="ql-stroke" x1="6" x2="9.35" y1="12" y2="3"></line> <line class="ql-stroke" x1="11" x2="15" y1="11" y2="15"></line> <line class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect> </svg></button>
+      <span class="ql-formats">
+        <button class="ql-formula"></button>
+        <button class="ql-code-block"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-clean"></button>
       </span>
     </div>
   </div>
@@ -125,12 +95,10 @@
           height="333" width="756"></p>
       <p><br></p>
       <p>&nbsp;</p>
-      <p>신경망을 얇게 잘라 확대한 사진을 보면 특정한 규칙이 보인다고 한다. 그것을 보고 연구자가 만들어낸 모델이 퍼셉트론이다. 실제 동물과 인간이 가진 신경망의 정확한 구조와 정보처리 과정은 아직 전부 밝혀지지
-        않았다. 그런 의미에서 퍼셉트론도 현상을 이해하려고 만든 하나의 모델이다.</p>
+      <p>신경망을 얇게 잘라 확대한 사진을 보면 특정한 규칙이 보인다고 한다. 그것을 보고 연구자가 만들어낸 모델이 퍼셉트론이다. 실제 동물과 인간이 가진 신경망의 정확한 구조와 정보처리 과정은 아직 전부 밝혀지지 않았다. 그런 의미에서 퍼셉트론도 현상을 이해하려고 만든 하나의 모델이다.</p>
       <p><br></p>
       <p>기본적으로 퍼셉트론이 동작하는 방식은 다음과 같다. </p>
-      <p>각 노드의 가중치와 입력치를 곱한 것을 모두 합한 값이 활성화 함수에 의해 판단되는데, 그 값이 임계치(보통 0)보다 크면 뉴런이 활성화되고 결과값으로 1을 출력한다. 뉴런이 활성화되지 않으면 결과값으로 -1을
-        출력한다.</p>
+      <p>각 노드의 가중치와 입력치를 곱한 것을 모두 합한 값이 활성화 함수에 의해 판단되는데, 그 값이 임계치(보통 0)보다 크면 뉴런이 활성화되고 결과값으로 1을 출력한다. 뉴런이 활성화되지 않으면 결과값으로 -1을 출력한다.</p>
       <p>&nbsp;</p>
       <p>수학식으로는 아래와 같이 표현된다.</p>
       <p>1. 각 노드의 가중치와 입력치를 곱한 것을 모두 합한 값이 활성화 함수에 의해 판단된다. &nbsp;</p>
@@ -147,14 +115,11 @@
       <p>&nbsp;</p>
       <p class="ql-align-center"><img src="./image/image(1)" height="244" width="429"></p>
       <p>&nbsp;</p>
-      <p>"모든 입력이 1이라는 가중치를 가지고 한계랎이 입력 수의 절반일 경우 입력의 절반 이상이 발화하면 퍼셉트론이 발화한다. 다른 말로 하면 퍼셉트론은 다수가 이기는 작은 국회와 같다. 하지만 보통 모든 의원의
-        투표권이 같은 효력을 지니지 않기 때문에 완전히 민주적인 것은 아니다. 신경망은 소수의 가까운 친구들이 페이스북 친구 1000명 이상보다 중요한 사회관계망과 더 비슷하다.</p>
-      <p>그래서 당신에게 가장 많은 영향을 미치는 친구가 가장 신뢰하는 친구다. 친구가 추천한 영화가 좋았다면 당신은 다음번에도 그 친구의 추천을 따를 것이다. 반면에 당신이 좋아하지 않는 영화에 대하여 입이 마르도록
-        칭찬한다면 그 친구의 의견을 무시해 버릴 것이다."</p>
+      <p>"모든 입력이 1이라는 가중치를 가지고 한계랎이 입력 수의 절반일 경우 입력의 절반 이상이 발화하면 퍼셉트론이 발화한다. 다른 말로 하면 퍼셉트론은 다수가 이기는 작은 국회와 같다. 하지만 보통 모든 의원의 투표권이 같은 효력을 지니지 않기 때문에 완전히 민주적인 것은 아니다. 신경망은 소수의 가까운 친구들이 페이스북 친구 1000명 이상보다 중요한 사회관계망과 더 비슷하다.</p>
+      <p>그래서 당신에게 가장 많은 영향을 미치는 친구가 가장 신뢰하는 친구다. 친구가 추천한 영화가 좋았다면 당신은 다음번에도 그 친구의 추천을 따를 것이다. 반면에 당신이 좋아하지 않는 영화에 대하여 입이 마르도록 칭찬한다면 그 친구의 의견을 무시해 버릴 것이다."</p>
       <p>마스터 알고리즘(The Master Algorithm, 2015) by Pedro Domingos, 본문 173쪽 중</p>
       <p>&nbsp;</p>
-      <p>퍼셉트론을 수식으로만 접하면 무미건조하고 개념이 와닿지가 않는다. 그것을 다양한 관점으로 보면 좀 더 많은 것을 볼 수 있다. 아래 도식은 내 입장에서 퍼셉트론을 인간이 인관관계를 평가하는 모델로 비교해보면
-        이해가 쉽다고 생각해서 만든 것이다.</p>
+      <p>퍼셉트론을 수식으로만 접하면 무미건조하고 개념이 와닿지가 않는다. 그것을 다양한 관점으로 보면 좀 더 많은 것을 볼 수 있다. 아래 도식은 내 입장에서 퍼셉트론을 인간이 인관관계를 평가하는 모델로 비교해보면 이해가 쉽다고 생각해서 만든 것이다.</p>
       <p>&nbsp;</p>
       <p class="ql-align-center"><img src="./image/image(2)" height="375" width="711"></p>
       <p>&nbsp;</p>
@@ -162,23 +127,20 @@
       <p><br></p>
       <p><br></p>
       <h2>Single Perceptron</h2>
-      <iframe class="ql-video" frameborder="0" allowfullscreen="true" src="./mlp/slp.html"></iframe>
+      <iframe class="ql-video" frameborder="0" allowfullscreen="true" src="./mlp/slp.html" width="800px" height="180px"></iframe>
       <p>위 앱은 퍼셉트론의 가중치를 직접 조절할 수 있게 슬라이드 버튼을 넣은 예제이다.</p>
       <p>(FIXME: 도식과 깔맞춤을 하려면 activation function을 thresold로 변경해야 겠다.)</p>
       <p><br></p>
       <p><br></p>
       <h2>Multi-layer Perceptron</h2>
       <p><br></p>
-      <iframe class="ql-video" frameborder="0" allowfullscreen="true" src="./mlp/index.html"></iframe>
+      <iframe class="ql-video" frameborder="0" allowfullscreen="true" src="./mlp/index.html" width="1250px" height="360px"></iframe>
       <p><br></p>
       <p>위 앱은 XOR 문제를 다층레이어퍼셉트론으로 어떻게 풀 수 있는지 직접 가중치를 조정해서 알아보려고 만든 예제이다.</p>
       <p><br></p>
-      <p>위 도식과 예제를 보면 느낄 수 있듯이 자연 상태(initial state)의 퍼셉트론이 하는 것은 "무작위 의견", 즉 쉬운 말로 헛짓거리다. 그러면 어떻게 하면 "무작위 의견"을 내어 놓는 퍼셉트론이 인간의
-        입장에서 유의미한 행위를 하도록 개선할 수 있을까?</p>
+      <p>위 도식과 예제를 보면 느낄 수 있듯이 자연 상태(initial state)의 퍼셉트론이 하는 것은 "무작위 의견", 즉 쉬운 말로 헛짓거리다. 그러면 어떻게 하면 "무작위 의견"을 내어 놓는 퍼셉트론이 인간의 입장에서 유의미한 행위를 하도록 개선할 수 있을까?</p>
       <p>&nbsp;</p>
-      <p>나는 개를 키우고 있다. 개는 주인과 유대감을 가지고 주인이 시키는 일을 해보려고 한다. 그런데 대부분의 경우 개는 무작위 행동을 한다. 개를 잘 가르치려면 개가 하는 무작위 행동 중에 주인이 원하는 행동을
-        했을 때 먹이를 주고 칭찬을 해서 보상을 해야 한다. 개가 주인이 원하지 않는 행동을 했을 때는 무시하거나 "안돼."하고 말하는 식으로 제재하는 의사표현을 해야 한다. 그렇게 적절한 타이밍을 잡아서 계속
-        특정 행동에 보상을 하면 그것이 바로 훈련이 된다.</p>
+      <p>나는 개를 키우고 있다. 개는 주인과 유대감을 가지고 주인이 시키는 일을 해보려고 한다. 그런데 대부분의 경우 개는 무작위 행동을 한다. 개를 잘 가르치려면 개가 하는 무작위 행동 중에 주인이 원하는 행동을 했을 때 먹이를 주고 칭찬을 해서 보상을 해야 한다. 개가 주인이 원하지 않는 행동을 했을 때는 무시하거나 "안돼."하고 말하는 식으로 제재하는 의사표현을 해야 한다. 그렇게 적절한 타이밍을 잡아서 계속 특정 행동에 보상을 하면 그것이 바로 훈련이 된다.</p>
       <p>&nbsp;</p>
       <p>내가 주인이고 애완견(Show Dog)에게 곡예를 가르친다고 상상해 보자.</p>
       <ol>
@@ -199,14 +161,12 @@
         <li>그럼에도 애완견이 자신이 하는 행동과 주인의 교정 행위 간의 관계를 상상하여 주인의 명령에 따르는 확률을 높이는 것이 정보를 창조하는 활동이다.</li>
       </ol>
       <p>&nbsp;</p>
-      <p>최근 머신러닝과 딥러닝이 해결하려고 하는 과제들도 위의 분석과 관련이 있다. 딥러닝 프로그램은 행위의 실체와 아웃풋이 의미하는 바를 모르지만 연구자(주인)의 교정을 받아서 연구자가 목적하는 방향으로 정보처리의
-        확률을 높인다. 그리고 컴퓨터 하드웨어의 발달로 대량 정보처리가 가능해지자 이 정보처리 부분에서는 인간보다 수행능력이 더 나아지게 된 것이다. </p>
+      <p>최근 머신러닝과 딥러닝이 해결하려고 하는 과제들도 위의 분석과 관련이 있다. 딥러닝 프로그램은 행위의 실체와 아웃풋이 의미하는 바를 모르지만 연구자(주인)의 교정을 받아서 연구자가 목적하는 방향으로 정보처리의 확률을 높인다. 그리고 컴퓨터 하드웨어의 발달로 대량 정보처리가 가능해지자 이 정보처리 부분에서는 인간보다 수행능력이 더 나아지게 된 것이다. </p>
       <p><br></p>
       <p>&nbsp;</p>
       <p><br></p>
       <h2>퍼셉트론 손실 함수 Loss function, Cost function</h2>
-      <p>퍼셉트론은 독립 변수 x로부터 종속 변수 y를 예측하는 예측 모형이므로 예측 오차 즉 손실(loss)을 최소화하는 가중치를 계산해야 한다. 위에 든 예시로 설명하면 “2. 애완견이 어떤 행위를 했을 때 그것이
-        목표로 한 기술과 얼마나 가까운지 판단할 수 있는 판정 기준을 만들어야 한다.” 와 관계있는 과정이다.</p>
+      <p>퍼셉트론은 독립 변수 x로부터 종속 변수 y를 예측하는 예측 모형이므로 예측 오차 즉 손실(loss)을 최소화하는 가중치를 계산해야 한다. 위에 든 예시로 설명하면 “2. 애완견이 어떤 행위를 했을 때 그것이 목표로 한 기술과 얼마나 가까운지 판단할 수 있는 판정 기준을 만들어야 한다.” 와 관계있는 과정이다.</p>
       <p>&nbsp;</p>
       <p>손실 함수(loss function) 는 목표로 한 &nbsp;y &nbsp;값과 퍼셉트론이 예측한 &nbsp;y^ &nbsp;값의 차이를 나타내는 함수이다.</p>
       <p>&nbsp;</p>
@@ -219,24 +179,21 @@
       <p>max는 인자로 받은 값 중 큰 값을 골라낸다는 의미이다.</p>
       <p>&nbsp;</p>
       <p>애완견을 가르치는 활동과 퍼셉트론을 가르치는 활동에서 보이는 두드러진 차이는 수학적인 정량 체계이다.</p>
-      <p>애완견을 가르칠 때 점프 높이를 정밀한 단위로 정량해서 특정 상황에 정해진 단위만큼 행동하게 한다면 더욱 프로페셔널한 곡예견을 양성할 수 있을 것이다. 그래서 사람이 눈대중으로 하는 활동을 머신러닝은 확률
-        정량 수치로 처리한다고 할 수 있겠다.</p>
+      <p>애완견을 가르칠 때 점프 높이를 정밀한 단위로 정량해서 특정 상황에 정해진 단위만큼 행동하게 한다면 더욱 프로페셔널한 곡예견을 양성할 수 있을 것이다. 그래서 사람이 눈대중으로 하는 활동을 머신러닝은 확률 정량 수치로 처리한다고 할 수 있겠다.</p>
       <p><br></p>
       <h2>가중치 계산</h2>
       <p>위에 든 예시로 설명하면 “3. 애완견이 주인이 원하는 방향으로 행동하도록 교정하는 일관된 명령 체계가 있어야 한다.” 와 관계있는 과정이다. </p>
       <p><br></p>
       <p>미분 계산, 경사하강법(gradient descent), 역전파법(back-propagation)은 개념상 접근방법이 같다.</p>
       <p><br></p>
-      <p>역전파법(back-propagation): 다층퍼셉트론에서 gradient descent 방식으로 학습을 할 때 오류값을 출력 레이어에서 입력 레이어 방향으로 전파시키는 방식이다. 업계에서 가장 폭넓게 사용하고
-        있다. 백프로퍼게이션 공식은 퍼셉트론의 구조에 따라 다양한데 아래는 단순한 형태의 예이다.</p>
+      <p>역전파법(back-propagation): 다층퍼셉트론에서 gradient descent 방식으로 학습을 할 때 오류값을 출력 레이어에서 입력 레이어 방향으로 전파시키는 방식이다. 업계에서 가장 폭넓게 사용하고 있다. 백프로퍼게이션 공식은 퍼셉트론의 구조에 따라 다양한데 아래는 단순한 형태의 예이다.</p>
       <p>&nbsp;</p>
       <p>weight = old weight - learning rate * (current output - desired output) * g(current output) * old input</p>
       <p>여기서 g는 gradient descent on activation function을 의미한다.&nbsp;</p>
       <p><br></p>
       <p class="ql-align-center"><img src="./image/image(4)" height="386" width="728"></p>
       <p><br></p>
-      <p>백프로퍼게이션을 사용하면 연구자가 원하는 값을 출력하는데 방해가 되는 가중치 통로를 아웃풋에서 인풋 방향으로 역순으로 추적해서 고쳐 나가게 된다. 그렇게 해서 최종적으로 아웃풋이 연구자가 원하는 값에 확률적으로
-        부합하도록 하는 것이 백프로퍼게이션의 목적이다. 이 방법이 도입된 이후에 퍼셉트론의 성과가 비약적으로 커졌다.&nbsp;</p>
+      <p>백프로퍼게이션을 사용하면 연구자가 원하는 값을 출력하는데 방해가 되는 가중치 통로를 아웃풋에서 인풋 방향으로 역순으로 추적해서 고쳐 나가게 된다. 그렇게 해서 최종적으로 아웃풋이 연구자가 원하는 값에 확률적으로 부합하도록 하는 것이 백프로퍼게이션의 목적이다. 이 방법이 도입된 이후에 퍼셉트론의 성과가 비약적으로 커졌다.&nbsp;</p>
       <p><br></p>
       <p>신경망을 학습시키는 기타 방법으로는 기계적으로 가중값을 조정하는 방법, 유전 알고리즘을 사용하는 방법 등이 있다.</p>
       <p><br></p>
