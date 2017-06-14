@@ -34,7 +34,7 @@ NetweightChart.prototype.initplot = function() {
         for (var iy = 0; iy < this.xy_data.length; iy++) {
             this.neural_net.net_weights[this.net_pos[0]][this.net_pos[1]][0] = this.xy_data[ix]
             this.neural_net.net_weights[this.net_pos[0]][this.net_pos[1]][1] = this.xy_data[iy]
-            ty.push(checkxor(false))
+            ty.push((4-checkxor(false))/4)
         }
         this.z_data.push(ty)
     }
@@ -46,7 +46,7 @@ NetweightChart.prototype.initplot = function() {
         y: this.xy_data,
         z: this.z_data,
         type: 'surface',
-        cmin: 0, cmax: 4
+        cmin: 0, cmax: 1
     }];
     Plotly.newPlot(this.dom, data, {
         title: 'weights of Layer:'+this.net_pos[0]+' Neuron:'+(this.net_pos[1]+1),
@@ -65,7 +65,7 @@ NetweightChart.prototype.updateplot = function() {
         for (var iy = 0; iy < this.xy_data.length; iy++) {
             this.neural_net.net_weights[this.net_pos[0]][this.net_pos[1]][0] = this.xy_data[ix]
             this.neural_net.net_weights[this.net_pos[0]][this.net_pos[1]][1] = this.xy_data[iy]
-            var iz = checkxor(false)
+            var iz = (4-checkxor(false))/4
             if(iz !== this.z_data[ix][iy]) {
                 is_changed = true
                 this.z_data[ix][iy] = iz
