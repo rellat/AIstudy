@@ -64,10 +64,12 @@ NetweightChart.prototype.initplot = function() {
 }
 NetweightChart.prototype.onhover = function(data) {
     this.is_hovered = true
+    document.getElementById(this.dom).style.backgroundColor = "rgb(255,255,200)"
     // console.log("hover "+ this.is_hovered)
 }
 NetweightChart.prototype.unhover = function(data) {
     this.is_hovered = false
+    document.getElementById(this.dom).style.backgroundColor = "rgb(255,255,255)"
     // console.log("hover "+ this.is_hovered)
 }
 NetweightChart.prototype.updateplot = function() {
@@ -441,24 +443,24 @@ var p5sketch = function(p) {
     }
     p.mouseMoved = function() {
         if(p.mouseX > 340 && p.mouseX < (340 + 100) && p.mouseY > 40 && p.mouseY < (40 + 100)) {
-            nwcl1n1.layout.paper_bgcolor = 'rgba(255,255,0,.4)'
-            Plotly.redraw(nwcl1n1.dom)
+            document.getElementById(nwcl1n1.dom).style.backgroundColor = "rgb(255,255,200)"
             prev_highligted_chart = true
+            nwcl1n1.is_hovered = true
         }else if(p.mouseX > 340 && p.mouseX < (340 + 100) && p.mouseY > 220 && p.mouseY < (220 + 100)) {
-            nwcl1n2.layout.paper_bgcolor = 'rgba(255,255,0,.4)'
-            Plotly.redraw(nwcl1n2.dom)
+            document.getElementById(nwcl1n2.dom).style.backgroundColor = "rgb(255,255,200)"
             prev_highligted_chart = true
+            nwcl1n2.is_hovered = true
         }else if(p.mouseX > 880 && p.mouseX < (880 + 100) && p.mouseY > 130 && p.mouseY < (130 + 100)) {
-            nwcl2n1.layout.paper_bgcolor = 'rgba(255,255,0,.4)'
-            Plotly.redraw(nwcl2n1.dom)
+            document.getElementById(nwcl2n1.dom).style.backgroundColor = "rgb(255,255,200)"
             prev_highligted_chart = true
+            nwcl2n1.is_hovered = true
         }else if(prev_highligted_chart){
-            nwcl1n1.layout.paper_bgcolor = 'rgba(0,0,0,0)'
-            nwcl1n2.layout.paper_bgcolor = 'rgba(0,0,0,0)'
-            nwcl2n1.layout.paper_bgcolor = 'rgba(0,0,0,0)'
-            Plotly.redraw(nwcl1n1.dom)
-            Plotly.redraw(nwcl1n2.dom)
-            Plotly.redraw(nwcl2n1.dom)
+            document.getElementById(nwcl1n1.dom).style.backgroundColor = "rgb(255,255,255)"
+            document.getElementById(nwcl1n2.dom).style.backgroundColor = "rgb(255,255,255)"
+            document.getElementById(nwcl2n1.dom).style.backgroundColor = "rgb(255,255,255)"
+            nwcl1n1.is_hovered = false
+            nwcl1n2.is_hovered = false
+            nwcl2n1.is_hovered = false
             prev_highligted_chart = false
         }
         
