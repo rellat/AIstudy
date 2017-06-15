@@ -24,6 +24,15 @@ var NetweightChart = function(options) {
     this.dom = options.dom || 'myplotly'
     this.neural_net = options.neural_net
     this.net_pos = options.net_pos || [1,0]
+    this.layout = {
+        title: 'weights of Layer:'+this.net_pos[0]+' Neuron:'+(this.net_pos[1]+1),
+        autosize: false,
+        width: 380,
+        height: 280,
+        margin: {l:10, r:10, t:80, b:10},
+        paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)'
+    }
+    this.is_hovered = false
     this.initplot()
 }
 NetweightChart.prototype.initplot = function() {
@@ -48,14 +57,18 @@ NetweightChart.prototype.initplot = function() {
         type: 'surface',
         cmin: 0, cmax: 1
     }];
-    Plotly.newPlot(this.dom, data, {
-        title: 'weights of Layer:'+this.net_pos[0]+' Neuron:'+(this.net_pos[1]+1),
-        autosize: false,
-        width: 380,
-        height: 280,
-        margin: {l:10, r:10, t:80, b:10}
-    });
+    Plotly.newPlot(this.dom, data, this.layout);
+    document.getElementById(this.dom).on('plotly_hover', this.onhover.bind(this))
+    document.getElementById(this.dom).on('plotly_unhover', this.unhover.bind(this))
     // console.log("init plot "+JSON.stringify(z_data))
+}
+NetweightChart.prototype.onhover = function(data) {
+    this.is_hovered = true
+    // console.log("hover "+ this.is_hovered)
+}
+NetweightChart.prototype.unhover = function(data) {
+    this.is_hovered = false
+    // console.log("hover "+ this.is_hovered)
 }
 NetweightChart.prototype.updateplot = function() {
     var is_changed = false
@@ -87,18 +100,7 @@ var NetCostChart = function(options) {
     this.y_cursor = 0
     for (var i = 0; i <= 10000; i++) { this.x_data.push(i) }
     this.dom = options.dom || 'myplotly'
-    this.initplot()
-}
-NetCostChart.prototype.initplot = function() {
-    var data = [{
-        x: this.x_data,
-        y: this.y_data,
-        mode: 'lines',
-        type: 'scatter',
-        line: {shape: 'spline'},
-        connectgaps: true
-    }];
-    Plotly.newPlot(this.dom, data, {
+    this.layout = {
         title: 'Cost by epoch',
         width: 350, height: 280,
         showlegend: false,
@@ -110,8 +112,21 @@ NetCostChart.prototype.initplot = function() {
             range: [0, 1],
             autorange: false
         },
-        margin: {l:20, r:15, t:80, b:20}
-    });
+        margin: {l:20, r:15, t:80, b:20},
+        paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)'
+    }
+    this.initplot()
+}
+NetCostChart.prototype.initplot = function() {
+    var data = [{
+        x: this.x_data,
+        y: this.y_data,
+        mode: 'lines',
+        type: 'scatter',
+        line: {shape: 'spline'},
+        connectgaps: true
+    }];
+    Plotly.newPlot(this.dom, data, this.layout);
     // console.log("init plot "+JSON.stringify(z_data))
 }
 NetCostChart.prototype.updateplot = function(inputs) {
@@ -151,6 +166,7 @@ function neuralnet_update(layer,neuron, weight, value) {
     neural_net.feedForwad([in1rbtn.selected, in2rbtn.selected])
 }
 
+var prev_highligted_chart = false;
 var p5sketch = function(p) {
     p.setup = function() {
         p.createCanvas(p5_screen_size[0], p5_screen_size[1]);
@@ -296,17 +312,24 @@ var p5sketch = function(p) {
         p.line(290, 135, 340, 90);
 
         // layer 1 neuron 1
-        p.noStroke(); p.fill(225,225,40);
+        p.noStroke(); 
+        if(nwcl1n1.is_hovered) { 
+            p.fill(160,255,160);
+            p.ellipse(330, 30, 120, 120);
+        }
+        p.fill(225,225,40);
         p.ellipse(340, 40, 100, 100);
         p.fill(40);
         p.ellipse(360, 80, 10, 10);
         p.ellipse(410, 80, 10, 10);
         p.stroke(40);
         p.noFill();
-        var happiness = 105 + neural_net.net_outputs[1][0] * 15
+        var happiness = 105 + neural_net.net_before_act[1][0] * 15
         p.bezier(360, 105, 370, happiness, 410, happiness, 420, 105);
         p.line(440, 90, 470, 90);
         p.noStroke(); p.fill(40); p.textSize(19); p.textAlign(p.LEFT);
+        p.text("Layer 1", 355,13);
+        p.text("Neuron 1", 355,35);
         p.text("Activation", 480,70);
         p.text("Function: ", 480,90);
         p.textAlign(p.RIGHT); p.text(neural_net.net_act_method[1], 570,110);
@@ -319,17 +342,23 @@ var p5sketch = function(p) {
         p.stroke(40);
         p.line(290, 225, 340, 270);
         p.line(290, 315, 340, 270);
-        p.noStroke(); p.fill(225,225,40);
+        p.noStroke(); 
+        if(nwcl1n2.is_hovered) { 
+            p.fill(160,255,160);
+            p.ellipse(330, 210, 120, 120);
+        }
+        p.fill(225,225,40);
         p.ellipse(340, 220, 100, 100);
         p.fill(40);
         p.ellipse(360, 260, 10, 10);
         p.ellipse(410, 260, 10, 10);
         p.stroke(40);
         p.noFill();
-        var happiness2 = 285 + neural_net.net_outputs[1][1] * 15
+        var happiness2 = 285 + neural_net.net_before_act[1][1] * 15
         p.bezier(360, 285, 370, happiness2, 410, happiness2, 420, 285);
         p.line(440, 270, 470, 270);
         p.noStroke(); p.fill(40); p.textSize(19); p.textAlign(p.LEFT);
+        p.text("Neuron 2", 355,210);
         p.text("Activation", 480,250);
         p.text("Function: ", 480,270);
         p.textAlign(p.RIGHT); p.text(neural_net.net_act_method[1], 570,290);
@@ -342,17 +371,24 @@ var p5sketch = function(p) {
         p.stroke(40);
         p.line(840, 90, 880, 180);
         p.line(840, 270, 880, 180);
-        p.noStroke(); p.fill(225,225,40);
+        p.noStroke(); 
+        if(nwcl2n1.is_hovered) { 
+            p.fill(160,255,160);
+            p.ellipse(870, 120, 120, 120);
+        }
+        p.fill(225,225,40);
         p.ellipse(880, 130, 100, 100);
         p.fill(40);
         p.ellipse(900, 170, 10, 10);
         p.ellipse(950, 170, 10, 10);
         p.stroke(40);
         p.noFill();
-        var happiness3 = 195 + neural_net.net_outputs[2][0] * 15
+        var happiness3 = 195 + neural_net.net_before_act[2][0] * 15
         p.bezier(900, 195, 910, happiness3, 950, happiness3, 960, 195);
         p.line(980, 180, 1000, 180);
         p.noStroke(); p.fill(40); p.textSize(19); p.textAlign(p.LEFT);
+        p.text("Layer 2", 895,95);
+        p.text("Neuron 1", 895,122);
         p.text("Activation", 1010,160);
         p.text("Function: ", 1010,180);
         p.textAlign(p.RIGHT); p.text(neural_net.net_act_method[2], 1100,200);
@@ -402,6 +438,30 @@ var p5sketch = function(p) {
         l1n2w2sl.handleMouseClick();
         l2n1w1sl.handleMouseClick();
         l2n1w2sl.handleMouseClick();
+    }
+    p.mouseMoved = function() {
+        if(p.mouseX > 340 && p.mouseX < (340 + 100) && p.mouseY > 40 && p.mouseY < (40 + 100)) {
+            nwcl1n1.layout.paper_bgcolor = 'rgba(255,255,0,.4)'
+            Plotly.redraw(nwcl1n1.dom)
+            prev_highligted_chart = true
+        }else if(p.mouseX > 340 && p.mouseX < (340 + 100) && p.mouseY > 220 && p.mouseY < (220 + 100)) {
+            nwcl1n2.layout.paper_bgcolor = 'rgba(255,255,0,.4)'
+            Plotly.redraw(nwcl1n2.dom)
+            prev_highligted_chart = true
+        }else if(p.mouseX > 880 && p.mouseX < (880 + 100) && p.mouseY > 130 && p.mouseY < (130 + 100)) {
+            nwcl2n1.layout.paper_bgcolor = 'rgba(255,255,0,.4)'
+            Plotly.redraw(nwcl2n1.dom)
+            prev_highligted_chart = true
+        }else if(prev_highligted_chart){
+            nwcl1n1.layout.paper_bgcolor = 'rgba(0,0,0,0)'
+            nwcl1n2.layout.paper_bgcolor = 'rgba(0,0,0,0)'
+            nwcl2n1.layout.paper_bgcolor = 'rgba(0,0,0,0)'
+            Plotly.redraw(nwcl1n1.dom)
+            Plotly.redraw(nwcl1n2.dom)
+            Plotly.redraw(nwcl2n1.dom)
+            prev_highligted_chart = false
+        }
+        
     }
 }
 new p5(p5sketch, 'myp5sketch');
@@ -542,6 +602,7 @@ var NeuralNetwork = function(options) {
     this.bias = options.bias || 1.0
     this.learning_rate = options.learning_rate || 0.1
     this.net_weights = []
+    this.net_before_act = []
     this.net_outputs = []
     this.net_errors = []
     this.net_length = options.net_shape.length || 2
@@ -550,6 +611,7 @@ var NeuralNetwork = function(options) {
     for (var i = 0; i < this.net_length; i++) {
         var neuron_length = options.net_shape[i] || 2
         var ws = []
+        var bfouts = []
         var outs = []
         var erorrs = []
         for (var j = 0; j < neuron_length + 1; j++) {
@@ -560,10 +622,12 @@ var NeuralNetwork = function(options) {
                 }
             }
             ws.push(ww)
+            bfouts.push(0)
             outs.push(0)
             erorrs.push(0)
         }
         this.net_weights.push(ws)
+        this.net_before_act.push(bfouts)
         this.net_outputs.push(outs)
         this.net_errors.push(erorrs)        
     }
@@ -606,7 +670,8 @@ NeuralNetwork.prototype.feedForwad = function (input_data) {
                 if(pr === this.net_outputs[i-1].length -1) { this.net_weights[i][cr][pr] = this.bias; continue; }
                 sum_of_w = sum_of_w + this.net_weights[i][cr][pr] * this.net_outputs[i-1][pr]
             } 
-            this.net_outputs[i][cr] = this.activate(sum_of_w + this.bias, this.net_act_method[i])
+            this.net_before_act[i][cr] = sum_of_w + this.bias, this.net_act_method[i]
+            this.net_outputs[i][cr] = this.activate(this.net_before_act[i][cr],this.net_act_method[i])
         }
     }
 }
